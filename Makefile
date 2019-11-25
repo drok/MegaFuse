@@ -14,7 +14,7 @@ OBJ = $(patsubst %.cpp,%.o,$(patsubst %.c,%.o,$(SRC)))
 
 
 # include directories
-INCLUDES = -I inc -I /usr/include/cryptopp -I sdk
+INCLUDES = -I inc -I /usr/include/cryptopp -I /usr/include/cryptlib -I sdk
 
 # C compiler flags (-g -O2 -Wall)
 CCFLAGS =   -g -Os -s -march=native -pipe -fstack-protector-all -Wall #-non-call-exceptions
