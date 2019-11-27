@@ -23,16 +23,16 @@ Optionally you can add this tool to /etc/fstab but this is untested, yet.
 
 * Otherwise, you may build under your distro
 
-	make
-	./MegaFuse
+      make
+      ./MegaFuse
 
 * To compile on debian or ubuntu you need these additional packages:
 	
-	apt-get install libcrypto++-dev libcurl4-openssl-dev libdb5.3++-dev libfreeimage-dev libreadline-dev libfuse-dev
+      apt-get install libcrypto++-dev libcurl4-openssl-dev libdb5.3++-dev libfreeimage-dev libreadline-dev libfuse-dev
 
 * To compile on Fedora you need these additional packages:
 
-        dnf install cryptlib-devel readline-devel cryptopp-devel freeimage-devel db4-devel curl-devel libdb-cxx-devel
+      dnf install cryptlib-devel readline-devel cryptopp-devel freeimage-devel db4-devel curl-devel libdb-cxx-devel
 
 * You can pass additional options to the fuse module via the command line option -f. example:
 	
