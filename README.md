@@ -28,7 +28,7 @@ Optionally you can add this tool to /etc/fstab but this is untested, yet.
 
 * To compile on debian or ubuntu you need these additional packages:
 	
-      apt-get install libcrypto++-dev libcurl4-openssl-dev libdb5.3++-dev libfreeimage-dev libreadline-dev libfuse-dev
+      apt install make libcrypto++-dev libcurl4-openssl-dev libdb5.3++-dev libfreeimage-dev libreadline-dev libfuse-dev
 
 * To compile on Fedora you need these additional packages:
 
