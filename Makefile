@@ -16,10 +16,12 @@ OBJ = $(patsubst %.cpp,%.o,$(patsubst %.c,%.o,$(SRC)))
 # include directories
 INCLUDES = -I inc -I /usr/include/cryptopp -I /usr/include/cryptlib -I sdk
 
-# C compiler flags (-g -O2 -Wall)
+# C compiler flags (-g -Os)
 CCFLAGS =   -g -Os -s -march=native -pipe -fstack-protector-all -Wall #-non-call-exceptions
 CCFLAGS += $(shell pkg-config --cflags libcurl fuse)
-CPPFLAGS =  -std=c++0x $(CCFLAGS) -D_GLIBCXX_DEBUG 
+CCFLAGS += -D_FILE_OFFSET_BITS=64
+CPPFLAGS =  -std=c++0x $(CCFLAGS) -D_GLIBCXX_DEBUG
+
 
 # compiler
 CC = gcc
