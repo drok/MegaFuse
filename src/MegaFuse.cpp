@@ -3,7 +3,6 @@
  * 
  */
 
-
 #include "megaclient.h"
 #include "megafusemodel.h"
 #include "Config.h"
@@ -26,7 +25,7 @@ MegaFuse::MegaFuse():running(true)
 
 	std::thread maintenance_loop(maintenance,this);
 	maintenance_loop.detach();
-	printf("MegaFushe::MegaFuse. Constructor finished.\n");
+	printf("MegaFuse::MegaFuse. Constructor finished.\n");
 }
 void MegaFuse::maintenance(MegaFuse* that)
 {
