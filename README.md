@@ -24,7 +24,6 @@ Optionally you can add this tool to /etc/fstab but this is untested, yet.
 * Otherwise, you may build under your distro
 
       make
-      ./MegaFuse
 
 * To compile on debian or ubuntu you need these additional packages:
 	
@@ -34,13 +33,13 @@ Optionally you can add this tool to /etc/fstab but this is untested, yet.
 
       dnf install cryptlib-devel readline-devel cryptopp-devel freeimage-devel db4-devel curl-devel libdb-cxx-devel
 
+* Edit ``megafuse.conf`` to add your user, password and [API key](https://www.programmableweb.com/api/mega). Then, specify the config file when running:
+
+	./MegaFuse -c megafuse.conf
+
 * You can pass additional options to the fuse module via the command line option -f. example:
 	
-	./MegaFuse -f -o allow_other -o uid=1000
-	
-* You can specify the location of the conf file with the command line option -c, by default the program will search the file "megafuse.conf" in the current path
-
-	./MegaFuse -c /home/user/megafuse.conf
+	./MegaFuse -c megafuse.conf -f -o allow_other -o uid=1000
 	
 * For the full list of options, launch the program with the option -h
 
