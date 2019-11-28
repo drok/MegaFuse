@@ -1,7 +1,7 @@
 MegaFuse
 ========
 
-This is a linux client for the MEGA cloud storage provider, originally developed by Matteo Serva. I've created this fork in order to maintain the project, as I'm more active, altrough I'm not a C++ expert, I'll accept pull requests and test them before pushing.
+This is a linux client for the MEGA cloud storage provider, originally developed by Matteo Serva, based on an **outdated** version of Mega SDK. I've created this fork in order to maintain the project, as I'm more active, altrough I'm not a C++ expert, I'll accept pull requests and test them before pushing.
 
 It is based on FUSE and it allows to mount the remote cloud drive on the local filesystem.
 Once mounted, all linux program will see the cloud drive as a normal folder.
