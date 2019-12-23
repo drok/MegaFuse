@@ -1,7 +1,8 @@
 MegaFuse
 ========
 
-This is a linux client for the MEGA cloud storage provider.
+This is a linux client for the MEGA cloud storage provider, originally developed by Matteo Serva, based on an **outdated** version of Mega SDK. I've created this fork in order to maintain the project, as I'm more active, altrough I'm not a C++ expert, I'll accept pull requests and test them before pushing.
+
 It is based on FUSE and it allows to mount the remote cloud drive on the local filesystem.
 Once mounted, all linux program will see the cloud drive as a normal folder.
 
@@ -11,39 +12,41 @@ The files are downloaded on the fly when requested and then cached to speedup pr
 The downloader will assign a higher priority to the requested chunk, and prefetch the remaining data.
 This allows also fast streaming of video files without prior encoding.
 
-
-please edit your config file "megafuse.conf" before running, you have to change at least your username and password.
+Please edit your config file "megafuse.conf" before running, you have to change at least your username and password.
 The mountpoint must be an empty directory.
 By default on debian system you need to be root to mount a fuse filesystem.
-Optionally you can add this tool to /etc/fstab but this is untested,yet.
+Optionally you can add this tool to /etc/fstab but this is untested, yet.
 
-to run,just
+## Getting started
 
-	make
-	./MegaFuse
+* The preferred way to get started is using my Alpine-based [Docker image](https://github.com/Amitie10g/docker-megafuse), that uses this repo.
 
-to compile on debian or ubuntu you need these additional packages:
+* Otherwise, you may build under your distro
+
+      make
+
+* To compile on debian or ubuntu you need these additional packages:
 	
-	apt-get install libcrypto++-dev libcurl4-openssl-dev libdb5.3++-dev libfreeimage-dev libreadline-dev libfuse-dev
+      apt install make g++ pkg-config libcrypto++-dev libcurl4-openssl-dev libdb5.3++-dev libfreeimage-dev libreadline-dev libfuse-dev
 
-you can pass additional options to the fuse module via the command line option -f. example:
-	
-	./MegaFuse -f -o allow_other -o uid=1000
-	
-you can specify the location of the conf file with the command line option -c, by default the program will search the file "megafuse.conf" in the current path
+* To compile on Fedora you need these additional packages:
 
-	./MegaFuse -c /home/user/megafuse.conf
-	
-for the full list of options, launch the program with the option -h
+      dnf install cryptlib-devel readline-devel cryptopp-devel freeimage-devel db4-devel curl-devel libdb-cxx-devel
 
-after an abnormal termination you might need to clear the mountpoint:
+* Edit ``megafuse.conf`` to add your user, password and [API key](https://www.programmableweb.com/api/mega). Then, specify the config file when running:
+
+	./MegaFuse -c megafuse.conf
+
+* You can pass additional options to the fuse module via the command line option -f. example:
+	
+	./MegaFuse -c megafuse.conf -f -o allow_other -o uid=1000
+	
+* For the full list of options, launch the program with the option -h
+
+* After an abnormal termination you might need to clear the mountpoint:
 	
 	$ fusermount -u $MOUNTPOINT
 	or # umount $MOUNTPOINT
-
-I'm currently accepting donations via paypal at the address of my main project
-
-	http://ygopro.it/web/modules.php?name=Donations&op=make
 
 FAQ
 ========
@@ -70,3 +73,8 @@ FAQ
 -
 	Q: How do I access a shared file from another account?
 	A: Import the file into your account, then it will be available from MegaFuse
+
+Caveats
+========
+
+This project is based on older versions of Mega SDK, as the upstream project has been inactive several years ago. I have another branch for attempting building a similar application using newer versions of the Mega SDK.

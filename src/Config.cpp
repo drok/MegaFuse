@@ -15,14 +15,14 @@ Config* Config::getInstance()
 void Config::check_variable(int &var,std::string value,std::string name)
 {
     var=stoi(value);
-    printf("caricata la variabile %s con il valore %d\n",name.c_str(),var);
+    printf("loaded the variable %s with the value %d\n",name.c_str(),var);
 
 }
 
 void Config::check_variable(std::string &var,std::string value,std::string name)
 {
     var = value;
-    printf("caricata la variabile %s con il valore %s\n",name.c_str(),value.c_str());
+    printf("loaded the variable %s with the value %s\n",name.c_str(),value.c_str());
 
 
 }
